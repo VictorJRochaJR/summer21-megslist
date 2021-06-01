@@ -1,8 +1,8 @@
 import { carsService } from "../services/CarsService";
 import BaseController from "../utils/BaseController";
 
-export class CarsController extends BaseController{
-    constructor(){
+export class CarsController extends BaseController {
+    constructor() {
         super("api/cars")
         this.router
             .get("", this.getCars)
@@ -31,13 +31,13 @@ export class CarsController extends BaseController{
     async createCar(req, res, next) {
         try {
             let car = await carsService.createCar(req.body)
-            return res.send(car)  
+            return res.send(car)
         } catch (error) {
             next(error)
         }
     }
 
-    async getCars(req, res, next){
+    async getCars(req, res, next) {
         try {
             let cars = await carsService.getCars()
             return res.send(cars)
